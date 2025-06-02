@@ -1,0 +1,11 @@
+__pycache__
+*.py[cod]
+/docs/_build
+/dist
+/ecdklint.egg-info
+/build
+/.eggs
+/.venv
+/.vscode
+/.mypy_cache
+/.pytest_cache
