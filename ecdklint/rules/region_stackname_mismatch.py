@@ -24,7 +24,7 @@ import os
 from ecdklint.aws_constants.regions import REGIONS
 from ecdklint.linter import LintProblem
 
-ID = "region_stackname_mismatch"
+ID = "region-stackname-mismatch"
 TYPE = "file"
 CONF: dict[str, str] = {}
 DEFAULT: dict[str, str] = {}

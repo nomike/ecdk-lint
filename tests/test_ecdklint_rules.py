@@ -19,10 +19,34 @@ from tests.common import RuleTestCase
 
 class ECdkLintRulesTestCase(RuleTestCase):
     def test_region_missing(self):
-        conf = "region_missing: enable"
+        conf = "region-missing: enable"
         self.check(
-            self.get_test_file_content("region_missing.json"),
+            self.get_test_file_content("region-missing.json"),
             conf,
-            problem1=(1, 1, "no region in stack config", "region_missing"),
-            problem2=(1, 1, "stack has no stack module", "stack_module_missing"),
+            problem=(1, 1, "no region in stack config", "region-missing")
+        )
+
+    def test_empty_json(self):
+        conf = "region-missing: enable"
+        self.check(
+            self.get_test_file_content("empty.json"),
+            conf,
+            problem=(1, 1, "syntax error: Empty strings are not legal JSON5", "syntax"),
+        )
+
+    def test_parameters_missing(self):
+        conf = "parameters-missing: enable"
+        self.check(
+            self.get_test_file_content("parameters-missing.json"),
+            conf,
+            problem=(1, 1, "Parameters section is missing", "parameters-missing")
+        )
+
+    def test_stackname_too_long(self):
+        conf = "stackname-too-long: enable"
+        self.check(
+            self.get_test_file_content("stack-name-too-long-test-file-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890.json"),
+            conf,
+            problem1=(1, 1, "stack name is too long", "stackname-too-long"),
+            filepath="tests/test_files/stack-name-too-long-test-file-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890.json"
         )

@@ -21,7 +21,7 @@ Use this rule to report stacks where the region is not valid.
 from ecdklint.aws_constants.regions import REGIONS
 from ecdklint.linter import LintProblem
 
-ID = "region_invalid"
+ID = "region-invalid"
 TYPE = "file"
 CONF: dict[str, str] = {}
 DEFAULT: dict[str, str] = {}

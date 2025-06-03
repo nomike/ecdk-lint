@@ -16,14 +16,14 @@
 
 """A linter for YAML files.
 
-ecdklint does not check for syntax validity, but for weirdnesses like missing regions,
+ecdklint does not only check for syntax validity, but for weirdness like missing regions,
 mismatch between region and stack-name-prefix, etc."""
 
 APP_NAME = "ecdklint"
-APP_VERSION = "0.0.1"
+APP_VERSION = "0.1.0"
 APP_DESCRIPTION = __doc__
 
-__author__ = "Adrien Vergé"
-__copyright__ = "Copyright 2022, Adrien Vergé; Copyright 2025, nomike Postmann"
+__author__ = "nomike Postmann"
+__copyright__ = "Copyright 2025, nomike Postmann"
 __license__ = "GPLv3"
 __version__ = APP_VERSION

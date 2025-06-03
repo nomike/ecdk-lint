@@ -15,17 +15,17 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
-Use this rule to report stacks where the region parameter does not exist.
+Use this rule to report stacks where the "Parameters" section is missing.
 """
 
 from ecdklint.linter import LintProblem
 
-ID = "stack-module-missing"
+ID = "parameters-missing"
 TYPE = "file"
 CONF: dict[str, str] = {}
 DEFAULT: dict[str, str] = {}
 
 
 def check(conf, data, filepath):
-    if "StackModule" not in data.keys():
-        yield LintProblem(1, 1, "stack has no stack module")
+    if not "Parameters" in data.keys():
+        yield LintProblem(1, 1, "Parameters section is missing")
