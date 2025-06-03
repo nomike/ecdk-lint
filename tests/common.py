@@ -36,17 +36,18 @@ class RuleTestCase(unittest.TestCase):
             return file.read()
 
     def build_fake_config(self, conf):
-        print(f"#####{conf}#####")
         if conf is None:
             conf = {}
         else:
             conf = yaml.safe_load(conf)
-        conf = {"extends": "default", "rules": conf}
+        conf = {"extends": "test", "rules": conf}
         return ECdkLintConfig(yaml.safe_dump(conf))
 
     def check(self, source, conf, **kwargs):
         expected_problems = []
         for key in kwargs:
+            if key == "filepath":
+                continue
             assert key.startswith("problem")
             if len(kwargs[key]) > 3:
                 if kwargs[key][3] == "syntax":
@@ -61,6 +62,6 @@ class RuleTestCase(unittest.TestCase):
                 )
             )
         expected_problems.sort()
-        real_problems = list(linter.run(source, self.build_fake_config(conf)))
+        real_problems = list(linter.run(source, self.build_fake_config(conf), filepath=kwargs.get("filepath", None)))
         print(real_problems)
         self.assertEqual(real_problems, expected_problems)

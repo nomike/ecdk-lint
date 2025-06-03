@@ -14,14 +14,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from ecdklint.rules import (region_invalid, region_missing,
-                            region_stackname_mismatch, stack_module_missing)
+from ecdklint.rules import (dummy, parameters_missing, region_invalid,
+                            region_missing, region_stackname_mismatch,
+                            stack_module_missing, stackname_too_long)
 
 _RULES = {
     region_missing.ID: region_missing,
     region_invalid.ID: region_invalid,
     region_stackname_mismatch.ID: region_stackname_mismatch,
     stack_module_missing.ID: stack_module_missing,
+    dummy.ID: dummy,
+    parameters_missing.ID: parameters_missing,
+    stackname_too_long.ID: stackname_too_long,
 }
 
 

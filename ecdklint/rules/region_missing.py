@@ -20,7 +20,7 @@ Use this rule to report stacks where the region parameter does not exist.
 
 from ecdklint.linter import LintProblem
 
-ID = "region_missing"
+ID = "region-missing"
 TYPE = "file"
 CONF: dict[str, str] = {}
 DEFAULT: dict[str, str] = {}

@@ -15,8 +15,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import io
-import json
 import re
+
+import json5 as json
 
 from ecdklint import decoder
 
@@ -75,7 +76,12 @@ def get_cosmetic_problems(buffer, conf, filepath):
     file_rules = [r for r in rules if r.TYPE == "file"]
 
     cache = []
-    data = json.loads(buffer)
+    try:
+        data = json.loads(buffer)
+    except ValueError as e:
+        # If the file could not be parsed as a json5 document, there is no sense in checking additional rules.
+        # As the json5 parsing problem is already reported by the get_syntax_error() function we can just return here.
+        return
     for rule in file_rules:
         rule_conf = conf.rules[rule.ID]
         for problem in rule.check(rule_conf, data, filepath):
@@ -94,9 +100,9 @@ def get_cosmetic_problems(buffer, conf, filepath):
 def get_syntax_error(buffer):
     try:
         list(json.loads(buffer))
-    except json.JSONDecodeError as e:
+    except ValueError as e:
         problem = LintProblem(
-            e.lineno + 1, e.colno + 1, "syntax error: " + e.msg + " (syntax)"
+            1, 1, "syntax error: " + ", ".join(e.args) + " (syntax)"
         )
         problem.level = "error"
         return problem
@@ -135,7 +141,7 @@ def _run(buffer, conf, filepath):
 
 
 def run(input, conf, filepath=None):
-    """Lints a ecdk source.
+    """Lints an ecdk source.
 
     Returns a generator of LintProblem objects.
 

@@ -1,0 +1,8 @@
+{
+  "StackModule": "alb",
+  "StackClass": "ALB",
+  "Region": "eu-central-1",
+  "Requires": [
+    "euc1-vpc"
+  ]
+}

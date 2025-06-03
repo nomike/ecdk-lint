@@ -15,17 +15,25 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
-Use this rule to report stacks where the region parameter does not exist.
+Use this rule to report stacks where the "Parameters" section is missing.
 """
+
+import os.path
 
 from ecdklint.linter import LintProblem
 
-ID = "stack-module-missing"
+ID = "stackname-too-long"
 TYPE = "file"
-CONF: dict[str, str] = {}
-DEFAULT: dict[str, str] = {}
+CONF: dict[str, str] = {
+    'max-length': int
+}
+DEFAULT: dict[str, str] = {
+    'max-length': 128
+}
 
 
 def check(conf, data, filepath):
-    if "StackModule" not in data.keys():
-        yield LintProblem(1, 1, "stack has no stack module")
+    stackname = os.path.basename(filepath).replace(".json", "")
+    if len(stackname) > conf['max-length']:
+        yield LintProblem(1, 1, f'Stack name is too long (max {conf['max-length']} characters)')
+    
