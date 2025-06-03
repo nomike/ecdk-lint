@@ -1,0 +1,55 @@
+[project]
+name = "ecdklint"
+description = "A linter for ecdk files."
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.9"
+license = {text = "GPL-3.0-or-later"}
+authors = [{name = "nomike Postmann", email = "nomike@nomike.com"}]
+keywords = ["ecdk", "lint", "linter", "syntax", "checker"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "json5",
+    "pathspec >= 0.5.3",
+    "pyyaml"
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    "doc8",
+    "flake8",
+    "flake8-import-order",
+    "rstcheck[sphinx]",
+    "sphinx",
+]
+
+[project.scripts]
+ecdklint = "ecdklint.cli:run"
+
+[project.urls]
+homepage = "https://github.com/nomike/ecdklint"
+repository = "https://github.com/nomike/ecdklint"
+documentation = "https://github.com/nomike/ecdklint"
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools >= 61"]
+
+[tool.setuptools]
+packages = ["ecdklint", "ecdklint.conf", "ecdklint.rules", "ecdklint.aws_constants"]
+
+[tool.setuptools.package-data]
+ecdklint = ["conf/*.yaml"]
+
+[tool.setuptools.dynamic]
+version = {attr = "ecdklint.__version__"}
