@@ -34,7 +34,7 @@ class ECdkLintConfig:
         self.ignore = None
 
         self.yaml_files = pathspec.PathSpec.from_lines(
-            "gitwildmatch", ["*.yaml", "*.yml", ".yamllint"]
+            "gitwildmatch", ["*.json", "*.json5", ".ecdklint"]
         )
 
         self.locale = None
