@@ -14,9 +14,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from ecdklint.rules import (dummy, parameters_missing, region_invalid,
-                            region_missing, region_stackname_mismatch,
-                            stack_class_missing, stack_module_missing,
+from ecdklint.rules import (dummy, json5_file_extension_deprecated,
+                            parameters_missing, region_invalid, region_missing,
+                            region_stackname_mismatch, stack_class_missing,
+                            stack_module_missing,
                             stackname_doesnt_match_module_and_class,
                             stackname_too_long)
 
@@ -30,6 +31,7 @@ _RULES = {
     stackname_too_long.ID: stackname_too_long,
     stack_class_missing.ID: stack_class_missing,
     stackname_doesnt_match_module_and_class.ID: stackname_doesnt_match_module_and_class,
+    json5_file_extension_deprecated.ID: json5_file_extension_deprecated,
 }
 
 

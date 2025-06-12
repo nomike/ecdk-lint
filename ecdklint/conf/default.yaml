@@ -33,6 +33,8 @@ rules:
   stackname-too-long: enable
   stackname-doesnt-match-module-and-class: enable
     level: warning
+  json5-file-extension-deprecated: enable
+    level: warning
   # anchors: enable
   # braces: enable
   # brackets: enable

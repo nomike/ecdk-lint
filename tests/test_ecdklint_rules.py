@@ -75,3 +75,12 @@ class ECdkLintRulesTestCase(RuleTestCase):
             problem=(1, 1, "stack name does not match module and class name", "stackname-doesnt-match-module-and-class"),
             filepath="tests/test_files/stackname-doesnt-match-module-and-class.json"
         )
+
+    def test_json5_fileextension_deprecated(self):
+        conf = "json5-file-extension-deprecated: enable"
+        self.check(
+            "{}",
+            conf,
+            problem=(1, 1, ".json5 file extension is deprecated, use .json instead", "json5-file-extension-deprecated"),
+            filepath="tests/test_files/test.json5"
+        )
