@@ -50,3 +50,45 @@ class ECdkLintRulesTestCase(RuleTestCase):
             problem1=(1, 1, "stack name is too long", "stackname-too-long"),
             filepath="tests/test_files/stack-name-too-long-test-file-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890.json"
         )
+    
+    def test_stack_class_missing(self):
+        conf = "stack-class-missing: enable"
+        self.check(
+            self.get_test_file_content("empty-dict.json"),
+            conf,
+            problem=(1, 1, "stack has no stack class", "stack-class-missing")
+        )
+
+    def test_stack_module_missing(self):
+        conf = "stack-module-missing: enable"
+        self.check(
+            self.get_test_file_content("empty-dict.json"),
+            conf,
+            problem=(1, 1, "stack has no stack module", "stack-module-missing")
+        )
+
+    def test_stackname_doesnt_match_module_and_class(self):
+        conf = "stackname-doesnt-match-module-and-class: enable"
+        self.check(
+            self.get_test_file_content("stackname-doesnt-match-module-and-class.json"),
+            conf,
+            problem=(1, 1, "stack name does not match module and class name", "stackname-doesnt-match-module-and-class"),
+            filepath="tests/test_files/stackname-doesnt-match-module-and-class.json"
+        )
+
+    def test_json5_fileextension_deprecated(self):
+        conf = "json5-file-extension-deprecated: enable"
+        self.check(
+            "{}",
+            conf,
+            problem=(1, 1, ".json5 file extension is deprecated, use .json instead", "json5-file-extension-deprecated"),
+            filepath="tests/test_files/test.json5"
+        )
+
+    def test_region_mismatch_stack_tags(self):
+        conf = "region-mismatch-stack-tags: enable"
+        self.check(
+            self.get_test_file_content("region-mismatch-stack-tags.json"),
+            conf,
+            problem=(1, 1, "Region in parameters and tags differ.", "region-mismatch-stack-tags"),
+        )

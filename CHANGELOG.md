@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.2.0](https://github.com/nomike/ecdk-lint/releases/tag/0.2.0) - 2025-06-12
+
+<small>[Compare with 0.1.0](https://github.com/nomike/ecdk-lint/compare/0.1.0...0.2.0)</small>
+
+### Added
+
+- Add rule region-mismatch-stack-tags. ([df77e95](https://github.com/nomike/ecdk-lint/commit/df77e9521261cc8d038ae64e6bc1e2314379e8e3) by nomike Postmann).
+- Add rule json5-file-extension-deprecated ([5237915](https://github.com/nomike/ecdk-lint/commit/5237915c71788932021f84d2521a35a903ebdc72) by nomike Postmann).
+- Add rule stackname-doesnt-match-module-and-class. ([cde37d3](https://github.com/nomike/ecdk-lint/commit/cde37d38a26c5d7c99c2dffe4933e0286e267791) by nomike Postmann).
+- Add new rules "stack_module_missing", "stack-class-missing" ([3fb1a12](https://github.com/nomike/ecdk-lint/commit/3fb1a127fc1f82f41ae15e77cce87a4a3d8e5bbb) by nomike Postmann).
+- Add new rules to default config. ([ca7dcf2](https://github.com/nomike/ecdk-lint/commit/ca7dcf27c03f4cd5e6e1b0887219bf93e019c025) by nomike Postmann).
+- Add more AWS regions. ([1c1bf87](https://github.com/nomike/ecdk-lint/commit/1c1bf87f4df4bea29168bc9dbdb88a76f0a4a0e5) by nomike Postmann).
+
 ## [0.1.0](https://github.com/nomike/ecdk-lint/releases/tag/0.1.0) - 2025-06-03
 
 <small>[Compare with first commit](https://github.com/nomike/ecdk-lint/compare/ebbe83de505aa13e17ec9d556c1420ba75ad8caa...0.1.0)</small>
@@ -14,4 +27,3 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Add: Various small fixes and improvements. Various new rules. ([f359cc9](https://github.com/nomike/ecdk-lint/commit/f359cc9177c395b9c63c8382513233c05ae65b17) by nomike Postmann).
 - Add pyproject definition and setup tools ([514b81c](https://github.com/nomike/ecdk-lint/commit/514b81c49ec168ae3c08d144c5eadeef782faceb) by nomike Postmann).
-
