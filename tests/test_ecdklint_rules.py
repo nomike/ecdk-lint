@@ -84,3 +84,11 @@ class ECdkLintRulesTestCase(RuleTestCase):
             problem=(1, 1, ".json5 file extension is deprecated, use .json instead", "json5-file-extension-deprecated"),
             filepath="tests/test_files/test.json5"
         )
+
+    def test_region_mismatch_stack_tags(self):
+        conf = "region-mismatch-stack-tags: enable"
+        self.check(
+            self.get_test_file_content("region-mismatch-stack-tags.json"),
+            conf,
+            problem=(1, 1, "Region in parameters and tags differ.", "region-mismatch-stack-tags"),
+        )

@@ -31,9 +31,11 @@ rules:
   stack-class-missing: enable
   parameters-missing: enable
   stackname-too-long: enable
-  stackname-doesnt-match-module-and-class: enable
+  stackname-doesnt-match-module-and-class:
     level: warning
-  json5-file-extension-deprecated: enable
+  json5-file-extension-deprecated:
+    level: warning
+  region-mismatch-stack-tags:
     level: warning
   # anchors: enable
   # braces: enable
