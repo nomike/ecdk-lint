@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.3.1](https://github.com/nomike/ecdklint/releases/tag/0.3.1) - 2025-06-12
+
+<small>[Compare with 0.3.0](https://github.com/nomike/ecdklint/compare/0.3.0...0.3.1)</small>
+
+### Fixed
+
+- Fix: Upgrade deprecated github action ([604a880](https://github.com/nomike/ecdklint/commit/604a880d6a1212d3eebcc7b144986f530166981c) by nomike Postmann).
+
 ## [0.3.0](https://github.com/nomike/ecdk-lint/releases/tag/0.3.0) - 2025-06-12
 
 <small>[Compare with 0.2.0](https://github.com/nomike/ecdk-lint/compare/0.2.0...0.3.0)</small>
