@@ -66,3 +66,12 @@ class ECdkLintRulesTestCase(RuleTestCase):
             conf,
             problem=(1, 1, "stack has no stack module", "stack-module-missing")
         )
+
+    def test_stackname_doesnt_match_module_and_class(self):
+        conf = "stackname-doesnt-match-module-and-class: enable"
+        self.check(
+            self.get_test_file_content("stackname-doesnt-match-module-and-class.json"),
+            conf,
+            problem=(1, 1, "stack name does not match module and class name", "stackname-doesnt-match-module-and-class"),
+            filepath="tests/test_files/stackname-doesnt-match-module-and-class.json"
+        )

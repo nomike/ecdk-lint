@@ -17,6 +17,7 @@
 from ecdklint.rules import (dummy, parameters_missing, region_invalid,
                             region_missing, region_stackname_mismatch,
                             stack_class_missing, stack_module_missing,
+                            stackname_doesnt_match_module_and_class,
                             stackname_too_long)
 
 _RULES = {
@@ -28,6 +29,7 @@ _RULES = {
     parameters_missing.ID: parameters_missing,
     stackname_too_long.ID: stackname_too_long,
     stack_class_missing.ID: stack_class_missing,
+    stackname_doesnt_match_module_and_class.ID: stackname_doesnt_match_module_and_class,
 }
 
 

@@ -31,6 +31,8 @@ rules:
   stack-class-missing: enable
   parameters-missing: enable
   stackname-too-long: enable
+  stackname-doesnt-match-module-and-class: enable
+    level: warning
   # anchors: enable
   # braces: enable
   # brackets: enable

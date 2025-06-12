@@ -1,0 +1,9 @@
+{
+  "StackModule": "cloudfront",
+  "StackClass": "Distribution",
+  "Region": "us-east-1",
+  "Parameters": {
+  },
+  "Tags": {
+  }
+}
