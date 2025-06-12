@@ -1,6 +1,7 @@
 ---
 name: Build and Release
 
+# yamllint disable-line rule:truthy
 on:
   release:
     types: [published]
@@ -9,47 +10,48 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-    
-    - name: Install build tools
-      run: pip install build
-    
-    - name: Build package
-      run: python -m build
-    
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        path: dist/*
-        name: dist
-    
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install build tools
+        run: pip install build
+
+      - name: Build package
+        run: python -m build
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: dist/*
+          name: dist
+
   release:
     needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: dist
-        path: dist
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
 
-    - name: Generate Changelog
+      - name: Generate Changelog
         run: |
-        pip install git-changelog
-        git-changelog -io CHANGELOG.md --release "${{ github.ref_name}}" >RELEASENOTES.txt
-    
-    - name: Upload to GitHub Release
-      uses: softprops/action-gh-release@v2
-      if: github.ref_type == 'tag'
-      with:
-        body_path: RELEASENOTES.txt
-        files: |
-          dist/*.tar.gz
-          dist/*.whl
+          pip install git-changelog
+          git-changelog -io CHANGELOG.md --release "${{ github.ref_name}}" \
+            >RELEASENOTES.txt
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          body_path: RELEASENOTES.txt
+          files: |
+            dist/*.tar.gz
+            dist/*.whl
