@@ -50,3 +50,19 @@ class ECdkLintRulesTestCase(RuleTestCase):
             problem1=(1, 1, "stack name is too long", "stackname-too-long"),
             filepath="tests/test_files/stack-name-too-long-test-file-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890.json"
         )
+    
+    def test_stack_class_missing(self):
+        conf = "stack-class-missing: enable"
+        self.check(
+            self.get_test_file_content("empty-dict.json"),
+            conf,
+            problem=(1, 1, "stack has no stack class", "stack-class-missing")
+        )
+
+    def test_stack_module_missing(self):
+        conf = "stack-module-missing: enable"
+        self.check(
+            self.get_test_file_content("empty-dict.json"),
+            conf,
+            problem=(1, 1, "stack has no stack module", "stack-module-missing")
+        )

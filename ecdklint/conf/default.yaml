@@ -28,6 +28,7 @@ rules:
   region-stackname-mismatch:
     level: warning
   stack-module-missing: enable
+  stack-class-missing: enable
   parameters-missing: enable
   stackname-too-long: enable
   # anchors: enable
