@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [0.3.4](https://github.com/nomike/ecdklint/releases/tag/0.3.4) - 2025-06-12
+
+<small>[Compare with 0.3.3](https://github.com/nomike/ecdklint/compare/0.3.3...0.3.4)</small>
+
+### Fixed
+
+- Fixes to github release action ([b2b32bc](https://github.com/nomike/ecdklint/commit/b2b32bc4fde56e013255bfc61379b921d7aebe1e) by nomike Postmann).
+
 ## [0.3.3](https://github.com/nomike/ecdklint/releases/tag/0.3.3) - 2025-06-12
 
 <small>[Compare with 0.3.2](https://github.com/nomike/ecdklint/compare/0.3.2...0.3.3)</small>
