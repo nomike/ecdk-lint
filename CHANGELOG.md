@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [3.2.8](https://github.com/nomike/ecdk-lint/releases/tag/3.2.8) - 2025-06-12
+
+<small>[Compare with 0.2.0](https://github.com/nomike/ecdk-lint/compare/0.2.0...3.2.8)</small>
+
+### Added
+
+- Add github action for releases ([285cfd8](https://github.com/nomike/ecdk-lint/commit/285cfd8e6860961a3b17c56935ab5c8aadaf6eda) by nomike Postmann).
+- Add github action for running unit tests ([697ecd0](https://github.com/nomike/ecdk-lint/commit/697ecd036b260df3c44095f1b03a61e4750b4794) by nomike Postmann).
+
+### Fixed
+
+- Fix directory name for ci workflow. ([8f5b014](https://github.com/nomike/ecdk-lint/commit/8f5b014e46b1d7d70976416e9e09bfa4038589c5) by nomike Postmann).
+
 ## [0.2.0](https://github.com/nomike/ecdk-lint/releases/tag/0.2.0) - 2025-06-12
 
 <small>[Compare with 0.1.0](https://github.com/nomike/ecdk-lint/compare/0.1.0...0.2.0)</small>
