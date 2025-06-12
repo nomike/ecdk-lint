@@ -23,13 +23,13 @@ ecdk-files:
   - '*.json'
 
 rules:
-  region_missing: enable
-  region_invalid: enable
-  region_stackname_mismatch:
+  region-missing: enable
+  region-invalid: enable
+  region-stackname-mismatch:
     level: warning
-  stack_module_missing: enable
-  parameters_missing: enable
-  stackname_too_long: enable
+  stack-module-missing: enable
+  parameters-missing: enable
+  stackname-too-long: enable
   # anchors: enable
   # braces: enable
   # brackets: enable
