@@ -20,7 +20,7 @@ ecdklint does not only check for syntax validity, but for weirdness like missing
 mismatch between region and stack-name-prefix, etc."""
 
 APP_NAME = "ecdklint"
-APP_VERSION = "0.3.3"
+APP_VERSION = "0.3.4"
 APP_DESCRIPTION = __doc__
 
 __author__ = "nomike Postmann"
