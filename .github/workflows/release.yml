@@ -44,7 +44,7 @@ jobs:
       - name: Generate Changelog
         run: |
           pip install git-changelog
-          git-changelog -io CHANGELOG.md --release "${{ github.ref_name}}" \
+          git-changelog -io ${GITHUB_WORKSPACE}/CHANGELOG.md --release "${{github.ref_name}}" \
             >RELEASENOTES.txt
 
       - name: Upload to GitHub Release
