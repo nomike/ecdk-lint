@@ -41,17 +41,10 @@ jobs:
           name: dist
           path: dist
 
-      - name: Generate Changelog
-        run: |
-          pip install git-changelog
-          git-changelog -io ${GITHUB_WORKSPACE}/CHANGELOG.md --release "${{github.ref_name}}" \
-            >RELEASENOTES.txt
-
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'
         with:
-          body_path: RELEASENOTES.txt
           files: |
             dist/*.tar.gz
             dist/*.whl
